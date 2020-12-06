@@ -26,8 +26,20 @@ const readInput4 = (file = 'input.txt', splitOn = '\r') => {
   }
 }
 
+const readInputSix = (file = 'input.txt', splitOn = '\r') => {
+  try {
+    // const data = fs.readFileSync(file).toString().replace(/(\n)/gm, ' ')
+    const data = fs.readFileSync(file).toString().split('\r\n\r\n')
+    return data.map((value) => value.split('\r\n'))
+  }
+  catch {
+    throw new Error(`unable to read from ${ file }`)
+  }
+}
+
 module.exports = {
   readInput: readInput,
   readInput4: readInput4,
-  readInputToNum: readInputToNum
+  readInputToNum: readInputToNum,
+  readInputSix: readInputSix
 }
