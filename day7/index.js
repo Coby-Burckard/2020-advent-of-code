@@ -47,15 +47,11 @@ const parseInput = (input) => {
 }
 
 const digForGold = ({ parent, children }, memory) => {
-  // console.log(parent)
-
   if (parent === 'shiny gold') {
-    // console.log('gold here')
     return 1
   }
 
   if (children.length === 0) {
-    // console.log('end here')
     return 0
   }
 
@@ -78,10 +74,6 @@ const partOne = (luggage) => {
 
   // for each bag, do recursion
   luggage.forEach((bag) => {
-
-    // console.log('\n\n\n start of', bag.parent)
-
-
     const ans = digForGold(bag, memory)
     count += ans
 
