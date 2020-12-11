@@ -1,4 +1,5 @@
 const { readInput } = require('../utils/readInput')
+const performance = require('perf_hooks').performance
 
 //Part 1 (solution 2316)
 //compares each step against the next until there is no chage and returns the number of steps
@@ -87,8 +88,11 @@ const partOne = (seats) => {
 }
 
 const main = () => {
-  const input = readInput().map(value => value.split(''))
+  const input = readInput('test.txt').map(value => value.split(''))
   console.log(partOne(input))
 }
 
+var t0 = performance.now()
 main()
+var t1 = performance.now()
+console.log("Finished in " + (t1 - t0) + " milliseconds.")
