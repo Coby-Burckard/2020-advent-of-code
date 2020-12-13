@@ -37,9 +37,29 @@ const partOne = (input) => {
     dir: math.complex(1, 0)
   }
 
+  let [maxX, maxY, minX, minY] = [0, 0, 0, 0]
+
   for (line of input) {
     updateShip(ship, line)
+
+    const x = ship.position.re
+    const y = ship.position.im
+
+    if (x > maxX) {
+      maxX = x
+    }
+    if (x < minX) {
+      minX = x
+    }
+    if (y > maxY) {
+      maxY = y
+    }
+    if (y < minY) {
+      minY = y
+    }
   }
+
+  console.log('x: ', minX, maxX, 'y: ', minY, maxY)
 
   return Math.abs(ship.position.re) + Math.abs(ship.position.im)
 }

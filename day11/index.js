@@ -88,8 +88,9 @@ const partOne = (seats) => {
 }
 
 const main = () => {
-  const input = readInput('test.txt').map(value => value.split(''))
+  const input = readInput().map(value => value.split(''))
   console.log(partOne(input))
+  console.log(input.map((rowArray) => rowArray.map(seat => seat === '.' ? ' ' : seat)))
 }
 
 var t0 = performance.now()
