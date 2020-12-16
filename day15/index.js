@@ -16,7 +16,6 @@ const partOne = (startValues) => {
   for (let index = startValues.length - 1; index < 30000000; index++) {
     const lastTimeSaid = mem[next]
     last = next
-    // history.push(next)
     mem[next] = index
     next = lastTimeSaid === undefined ? 0 : index - lastTimeSaid
 
