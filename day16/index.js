@@ -51,7 +51,6 @@ const removeInvalidTickets = (tickets, fields) => {
 
 const partTwo = (tickets, fields) => {
   for (let fieldIndex = 0; fieldIndex < fields.length; fieldIndex++) {
-    console.log('starting', fields[fieldIndex])
     for (let ticketIndex = 0; ticketIndex < tickets[0].length; ticketIndex++) {
       let match = true
       const field = fields[fieldIndex]
@@ -59,7 +58,6 @@ const partTwo = (tickets, fields) => {
         const ticket = tickets[ticketNumber]
         const fieldValue = 1 * ticket[ticketIndex]
         if (!((field.range[0][0] <= fieldValue && field.range[0][1] >= fieldValue) || (field.range[1][0] <= fieldValue && field.range[1][1] >= fieldValue))) {
-          console.log(`On ticket ${ ticketNumber }, field ${ ticketIndex } is invalid due to ${ fieldValue } not being in range ${ field.range }`)
           match = match && false
         }
       }
@@ -74,8 +72,8 @@ const partTwo = (tickets, fields) => {
 
 
 const main = () => {
-  const tickets = parseTickets(readInput('tickets.txt'))
-  const fields = parseFields(readInput('fields.txt'))
+  const tickets = parseTickets(readInput('testtickets.txt'))
+  const fields = parseFields(readInput('testfields.txt'))
   console.log('part one:', partOne(tickets, fields))
   console.log(tickets.length)
   const redTickets = removeInvalidTickets(tickets, fields)
